@@ -158,8 +158,8 @@ Camera:
   m_GameObject: {fileID: 579649770}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.58753115, g: 0.7445139, b: 0.764151, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.41301203, g: 0, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -216,7 +216,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2119576242}
-  - component: {fileID: 2119576241}
+  - component: {fileID: 2119576243}
   m_Layer: 0
   m_Name: Board
   m_TagString: Untagged
@@ -224,21 +224,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2119576241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2119576240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11393e7054be62d468ce85b9097f8c2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  width: 7
-  height: 10
-  tilePrefab: {fileID: 4263496640517683646, guid: f2b7b6605c6f16c4ca59ee5f13310132, type: 3}
 --- !u!4 &2119576242
 Transform:
   m_ObjectHideFlags: 0
@@ -254,3 +239,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2119576243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119576240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6a85fab0df7b8c4f86f081962041fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  width: 7
+  height: 10
+  tilePrefab: {fileID: 4263496640517683646, guid: f2b7b6605c6f16c4ca59ee5f13310132, type: 3}
+  dots:
+  - {fileID: 7825590926230774884, guid: 11885ca063c560f418ab9f0d18c9716c, type: 3}
+  - {fileID: 7268686602732729957, guid: 19667edb6a6a1a94db273271634edd3a, type: 3}
+  - {fileID: 3833559912619244983, guid: 70f4ac4536492b449915aa4596f06df4, type: 3}
+  - {fileID: 7840430761479075634, guid: ce18a7e65d614044196bcdd2b505374b, type: 3}
+  - {fileID: 467985977842525398, guid: 705f60adf058d08448a42e1dd9b3dc58, type: 3}
+  - {fileID: 8296297063911224227, guid: a794a0056ebdac844a1287a130812d63, type: 3}
+  - {fileID: 1875615973851492886, guid: be46296ceb86f7941a05d8d2c8545552, type: 3}
+  - {fileID: 2278835694087081294, guid: cf4234ca21174fa4cae15183f98f7fac, type: 3}
