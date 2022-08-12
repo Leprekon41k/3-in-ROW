@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4118915341234152569}
   - component: {fileID: -3209566194110285583}
   - component: {fileID: 93529839884714483}
-  - component: {fileID: -1982846582097650246}
+  - component: {fileID: -5778536844510170464}
   m_Layer: 0
   m_Name: Gem_doorimar
   m_TagString: Untagged
@@ -120,7 +120,7 @@ MonoBehaviour:
   targetX: 0
   targetY: 0
   swipeAngle: 0
---- !u!111 &-1982846582097650246
+--- !u!111 &-5778536844510170464
 Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,4 +135,4 @@ Animation:
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
-  m_CullingType: 1
+  m_CullingType: 0

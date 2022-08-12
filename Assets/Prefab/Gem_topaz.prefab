@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7035386666235311970}
   - component: {fileID: 2911923118642306001}
   - component: {fileID: -3780653207040865841}
-  - component: {fileID: -2893854792228729712}
+  - component: {fileID: 4119065346718952473}
   m_Layer: 0
   m_Name: Gem_topaz
   m_TagString: Untagged
@@ -120,7 +120,7 @@ MonoBehaviour:
   targetX: 0
   targetY: 0
   swipeAngle: 0
---- !u!111 &-2893854792228729712
+--- !u!111 &4119065346718952473
 Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,4 +135,4 @@ Animation:
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
-  m_CullingType: 1
+  m_CullingType: 0

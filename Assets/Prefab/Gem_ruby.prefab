@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7346493754337627219}
   - component: {fileID: -7467700262807319900}
   - component: {fileID: 3102811940258768751}
-  - component: {fileID: 4406479425401917684}
+  - component: {fileID: -4320090022395693703}
   m_Layer: 0
   m_Name: Gem_ruby
   m_TagString: Untagged
@@ -120,7 +120,7 @@ MonoBehaviour:
   targetX: 0
   targetY: 0
   swipeAngle: 0
---- !u!111 &4406479425401917684
+--- !u!111 &-4320090022395693703
 Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,4 +135,4 @@ Animation:
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
-  m_CullingType: 1
+  m_CullingType: 0

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8813731813772792061}
   - component: {fileID: 8700163197827657482}
   - component: {fileID: 4023835084706173115}
-  - component: {fileID: -900220491343049323}
+  - component: {fileID: -5607242084451436063}
   m_Layer: 0
   m_Name: Gem_sapphire
   m_TagString: Untagged
@@ -120,7 +120,7 @@ MonoBehaviour:
   targetX: 0
   targetY: 0
   swipeAngle: 0
---- !u!111 &-900220491343049323
+--- !u!111 &-5607242084451436063
 Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,4 +135,4 @@ Animation:
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
-  m_CullingType: 1
+  m_CullingType: 0

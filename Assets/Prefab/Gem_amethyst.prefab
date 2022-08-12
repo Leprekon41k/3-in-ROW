@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7586844540618873312}
   - component: {fileID: 42138712960149957}
   - component: {fileID: -3397532032959848513}
-  - component: {fileID: 7003471302869268163}
+  - component: {fileID: 1205694703955466608}
   m_Layer: 0
   m_Name: Gem_amethyst
   m_TagString: Untagged
@@ -120,7 +120,7 @@ MonoBehaviour:
   targetX: 0
   targetY: 0
   swipeAngle: 0
---- !u!111 &7003471302869268163
+--- !u!111 &1205694703955466608
 Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,4 +135,4 @@ Animation:
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
-  m_CullingType: 1
+  m_CullingType: 0

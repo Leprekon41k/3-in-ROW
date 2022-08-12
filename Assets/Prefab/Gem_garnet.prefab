@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4664332734977624445}
   - component: {fileID: -3031732213331299574}
   - component: {fileID: -1647867585913645504}
-  - component: {fileID: -9088043496188470983}
+  - component: {fileID: 5863840996445486559}
   m_Layer: 0
   m_Name: Gem_garnet
   m_TagString: Untagged
@@ -120,7 +120,7 @@ MonoBehaviour:
   targetX: 0
   targetY: 0
   swipeAngle: 0
---- !u!111 &-9088043496188470983
+--- !u!111 &5863840996445486559
 Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,4 +135,4 @@ Animation:
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
-  m_CullingType: 1
+  m_CullingType: 0

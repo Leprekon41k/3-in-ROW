@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5545112226241265813}
   - component: {fileID: -6408226283476310573}
   - component: {fileID: -166402509077537691}
-  - component: {fileID: 7898152464005204410}
+  - component: {fileID: -7137596702654898625}
   m_Layer: 0
   m_Name: Gem_diamond
   m_TagString: Untagged
@@ -120,7 +120,7 @@ MonoBehaviour:
   targetX: 0
   targetY: 0
   swipeAngle: 0
---- !u!111 &7898152464005204410
+--- !u!111 &-7137596702654898625
 Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,4 +135,4 @@ Animation:
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
-  m_CullingType: 1
+  m_CullingType: 0

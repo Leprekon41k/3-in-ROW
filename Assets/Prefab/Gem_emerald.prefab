@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9057397476607727463}
   - component: {fileID: 9193905746820872434}
   - component: {fileID: 5564111230835125256}
-  - component: {fileID: 3205597270552374108}
+  - component: {fileID: 574894945842064144}
   m_Layer: 0
   m_Name: Gem_emerald
   m_TagString: Untagged
@@ -120,7 +120,7 @@ MonoBehaviour:
   targetX: 0
   targetY: 0
   swipeAngle: 0
---- !u!111 &3205597270552374108
+--- !u!111 &574894945842064144
 Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,4 +135,4 @@ Animation:
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
-  m_CullingType: 1
+  m_CullingType: 0
