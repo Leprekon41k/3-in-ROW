@@ -13,6 +13,7 @@ public class Dot : MonoBehaviour
     public bool IsMatched = false;
     public float SwipeResist = 1f;
 
+    private FindMatches findMatches;
     private Vector2 tempPosition;
     private Board board;
     private GameObject otherDot;
@@ -22,6 +23,7 @@ public class Dot : MonoBehaviour
     void Start()
     {
         board = FindObjectOfType<Board>();
+        findMatches = FindObjectOfType<FindMatches>();
         //TargetX = (int)transform.position.x;
         //TargetY = (int)transform.position.y;
         //Row = TargetY;
@@ -38,7 +40,7 @@ public class Dot : MonoBehaviour
         {
             SpriteRenderer MySprite = GetComponent<SpriteRenderer>();
             Color CurentColor = MySprite.color;
-            MySprite.color = new Color(CurentColor.r, CurentColor.g, CurentColor.a, CurentColor.b);
+            MySprite.color = new Color(CurentColor.r, CurentColor.g, CurentColor.b, 0.6f);
         }
         TargetX = Column;
         TargetY = Row;
@@ -50,6 +52,7 @@ public class Dot : MonoBehaviour
             {
                 board.AllDots[Column, Row] = this.gameObject;
             }
+            findMatches.FindAllMatches();
         }
         else
         {
@@ -65,7 +68,7 @@ public class Dot : MonoBehaviour
             {
                 board.AllDots[Column, Row] = this.gameObject;
             }
-
+            findMatches.FindAllMatches();
         }
         else
         {
