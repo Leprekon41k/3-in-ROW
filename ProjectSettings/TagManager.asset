@@ -13,6 +13,7 @@ TagManager:
   - Ruby
   - Sapphire
   - Topaz
+  - ColorBomb
   layers:
   - Default
   - TransparentFX

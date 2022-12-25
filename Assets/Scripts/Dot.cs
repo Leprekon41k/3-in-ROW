@@ -9,19 +9,35 @@ public class Dot : MonoBehaviour
     public int PreviousRow;
     public int TargetX;
     public int TargetY;
-    public float SwipeAngle = 0;
     public bool IsMatched = false;
-    public float SwipeResist = 1f;
+    public GameObject OtherDot;
+
 
     private FindMatches findMatches;
     private Vector2 tempPosition;
     private Board board;
-    private GameObject otherDot;
     private Vector2 firstTouchPosition;
     private Vector2 finalTouchPosition;
 
+    [Header("Swipe Stuff")]
+    public float SwipeAngle = 0;
+    public float SwipeResist = 1f;
+
+    [Header("PowerUp Stuff")]
+    public bool IsColorBomb;
+    public bool IsColumnBomb;
+    public bool IsRowBomb;
+    public GameObject RowArrow;
+    public GameObject ColumnArrow;
+    public GameObject ColorBomb;
+
+
     void Start()
     {
+        IsColumnBomb = false;
+        IsRowBomb = false;
+        IsColorBomb = false;
+
         board = FindObjectOfType<Board>();
         findMatches = FindObjectOfType<FindMatches>();
         //TargetX = (int)transform.position.x;
@@ -31,7 +47,19 @@ public class Dot : MonoBehaviour
 
         //PreviousRow = Row;
         //PreviousColumn = Column;
+
     }
+    //For testing and debug   
+    private void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            IsColorBomb = true;
+            GameObject Color = Instantiate(ColorBomb, transform.position, Quaternion.identity);
+            Color.transform.parent = this.transform;            
+        }
+    }
+    //
     void FixedUpdate()
     {
         FindMaches();
@@ -78,16 +106,27 @@ public class Dot : MonoBehaviour
     }
     public IEnumerator CheckMoveCo()
     {
-        yield return new WaitForSeconds(.5f);
-        if (otherDot != null)
+        if (IsColorBomb)
         {
-            if (!IsMatched && !otherDot.GetComponent<Dot>().IsMatched)
+            findMatches.MatchePiesecOfColor(OtherDot.tag);
+            IsMatched = true;
+        }
+        else if (OtherDot.GetComponent<Dot>().IsColorBomb)
+        {
+            findMatches.MatchePiesecOfColor(this.gameObject.tag);
+            IsMatched = true;
+        }
+        yield return new WaitForSeconds(.4f);
+        if (OtherDot != null)
+        {
+            if (!IsMatched && !OtherDot.GetComponent<Dot>().IsMatched)
             {
-                otherDot.GetComponent<Dot>().Row = Row;
-                otherDot.GetComponent<Dot>().Column = Column;
+                OtherDot.GetComponent<Dot>().Row = Row;
+                OtherDot.GetComponent<Dot>().Column = Column;
                 Row = PreviousRow;
                 Column = PreviousColumn;
                 yield return new WaitForSeconds(.5f);
+                board.CurrentDot = null;
                 board.CurrentState = GameState.move;
             }
             else
@@ -95,7 +134,7 @@ public class Dot : MonoBehaviour
                 board.DestroyMatches();
             }
         }
-        otherDot = null;
+        //otherDot = null;
     }
     private void OnMouseDown()
     {
@@ -117,9 +156,11 @@ public class Dot : MonoBehaviour
         if (Mathf.Abs(finalTouchPosition.y - firstTouchPosition.y) > SwipeResist ||
             Mathf.Abs(finalTouchPosition.x - firstTouchPosition.x) > SwipeResist)
         {
-            SwipeAngle = Mathf.Atan2(finalTouchPosition.y - firstTouchPosition.y, finalTouchPosition.x - firstTouchPosition.x) * 180 / Mathf.PI;
+            SwipeAngle = Mathf.Atan2(finalTouchPosition.y - firstTouchPosition.y, 
+                                     finalTouchPosition.x - firstTouchPosition.x) * 180 / Mathf.PI;
             MovePieces();
             board.CurrentState = GameState.wait;
+            board.CurrentDot = this;
         }
         else
         {
@@ -130,34 +171,34 @@ public class Dot : MonoBehaviour
     {
         if (SwipeAngle > -45 && SwipeAngle <= 45 && Column < board.Width - 1) // Right swipe 
         {
-            otherDot = board.AllDots[Column + 1, Row];
+            OtherDot = board.AllDots[Column + 1, Row];
             PreviousRow = Row;
             PreviousColumn = Column;
-            otherDot.GetComponent<Dot>().Column -= 1;
+            OtherDot.GetComponent<Dot>().Column -= 1;
             Column += 1;
         }
         else if (SwipeAngle > 45 && SwipeAngle <= 135 && Row < board.Height - 1) // Up swipe 
         {
-            otherDot = board.AllDots[Column, Row + 1];
+            OtherDot = board.AllDots[Column, Row + 1];
             PreviousRow = Row;
             PreviousColumn = Column;
-            otherDot.GetComponent<Dot>().Row -= 1;
+            OtherDot.GetComponent<Dot>().Row -= 1;
             Row += 1;
         }
         else if ((SwipeAngle > 135 && SwipeAngle <= 180 || SwipeAngle <= -135 && SwipeAngle >= -180) && Column > 0) // Left swipe 
         {
-            otherDot = board.AllDots[Column - 1, Row];
+            OtherDot = board.AllDots[Column - 1, Row];
             PreviousRow = Row;
             PreviousColumn = Column;
-            otherDot.GetComponent<Dot>().Column += 1;
+            OtherDot.GetComponent<Dot>().Column += 1;
             Column -= 1;
         }
         else if (SwipeAngle < -45 && SwipeAngle >= -135 && Row > 0) // Down swipe 
         {
-            otherDot = board.AllDots[Column, Row - 1];
+            OtherDot = board.AllDots[Column, Row - 1];
             PreviousRow = Row;
             PreviousColumn = Column;
-            otherDot.GetComponent<Dot>().Row += 1;
+            OtherDot.GetComponent<Dot>().Row += 1;
             Row -= 1;
         }
         StartCoroutine(CheckMoveCo());
@@ -192,5 +233,17 @@ public class Dot : MonoBehaviour
                 }
             }
         }
+    }
+    public void MakeRowBomb()
+    {
+        IsRowBomb = true;
+        GameObject arrow = Instantiate(RowArrow, transform.position, Quaternion.identity);
+        arrow.transform.parent = this.transform;
+    }
+    public void MakeColumnBomb()
+    {
+        IsColumnBomb = true;
+        GameObject arrow = Instantiate(ColumnArrow, transform.position, Quaternion.identity);
+        arrow.transform.parent = this.transform;
     }
 }
